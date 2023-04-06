@@ -31,7 +31,7 @@ public class Orders implements Serializable {
 	private Date instant; 
 	
 	@ManyToOne
-	@JoinColumn(name="cliente_id")
+	@JoinColumn(name="usuario_id")
 	private Usuario usuario;
 	
 	@OneToMany(mappedBy = "id.orders")
@@ -41,11 +41,11 @@ public Orders() {
 		
 	}
 
-	public Orders(Integer id, Date instant,  Usuario client) {
+	public Orders(Integer id, Date instant,  Usuario usuario) {
 		super();
 		this.id = id;
 		this.instant = instant;
-		this.usuario = client;
+		this.usuario = usuario;
 		
 	}
 	
@@ -74,12 +74,12 @@ public Orders() {
 		this.instant = instant;
 	}
 
-	public Usuario getClient() {
+	public Usuario getUsuario() {
 		return usuario;
 	}
 
-	public void setClient(Usuario client) {
-		this.usuario = client;
+	public void setUsuario(Usuario usuario) {
+		this.usuario = usuario;
 	}
 
 	public Set<ItemOrder> getItems() {
@@ -117,7 +117,7 @@ public Orders() {
 		builder.append(", Instante: ");
 		builder.append(sdf.format(getInstant()));
 		builder.append(", Cliente: ");
-		builder.append(getClient().getName());
+		builder.append(getUsuario().getName());
 		builder.append("\nDetalhes:\n");
 		for(ItemOrder ip : getItems()) {
 			builder.append(ip.toString());

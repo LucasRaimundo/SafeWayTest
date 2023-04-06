@@ -27,7 +27,7 @@ public class Product implements Serializable {
 	
 	
 	@JsonIgnore
-	@OneToMany(mappedBy = "id.product")
+	@OneToMany(mappedBy = "id.products")
 	private Set<ItemOrder> items= new HashSet<>();
 	
 	public Product() {

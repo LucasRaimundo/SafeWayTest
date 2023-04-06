@@ -11,6 +11,6 @@ import com.lucasraimundo.safeway.entities.Usuario;
 public interface OrdersRepository extends JpaRepository<Orders, Integer> {
 	
 	@Transactional(readOnly=true)
-	Page<Orders> findByClient(Usuario usuario, Pageable pageRequest);
+	Page<Orders> findByUsuario(Usuario usuario, Pageable pageRequest);
 
 }
